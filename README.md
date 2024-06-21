@@ -19,15 +19,15 @@ When combined, these features offer a thorough approach to driving speed limitat
 
 
 ## Result Analysis
-bikeSpeed function
+bikeSpeed function:
 For speeds up to 80 mph, returns "Speed is within the limit for bikes."
 When the speed hits 80, it reverts to "Speed exceeds the limit for bikes."
 
-carSpeed function 
+carSpeed function:
 For speeds less than 120, returns "Speed is within the limit for cars."
 For speeds beyond 120, returns "Speed exceeds the limit for cars."
 
-truckSpeed function
+truckSpeed function:
 For speeds < 100, returns "Speed is within the limit for trucks."
 fails the transaction without displaying a customized error message if speed > 100 as a result of the assert.
 
