@@ -1,41 +1,38 @@
 # Project Title
 
-The provided Solidity code defines a contract named "transactionLimit" .It includes a private variable named "limit" and the three functions: checkRequire, checkAssert, and checkRevert, all aiming to achieve the same result but using different syntax .
+The provided Solidity code defines a contract named "SpeedLimit" .It includes three functions: "bikeSpeed" ,"carSpeed" ,"truckSpeed" using various error handling functions 'require', 'assert', and 'revert', all aiming to achieve the same result but using different syntax .
 
 ## Description
 
-Within a blockchain network, the code defines a smart contract called transactionLimit that sets a limit on transaction quantities. This contract makes use of three fundamental functions: checkRequire, checkAssert, and checkRevert. Each of these functions uses a unique strategy to accomplish the same goal, which is to make sure that transactions stay under a predetermined limit.
-All three functions accomplish the same goal of limiting the transaction amount, but they handle violations differently. 
-
-## Getting Started
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+One powerful and well-thought-out Solidity-based application that serves to enforce speed restrictions for cars, trucks, and cyclists is the Vehicle Speed Limit Compliance Smart Contract. The three different functions that make up the contract are each designed for a certain type of vehicle and use the require, revert, and assert Solidity error handling capabilities to make sure that the speed limits are followed.By carrying out these features, the smart contract encourages safe and controlled driving behavior by guaranteeing that the velocities of various vehicle kinds stay within their designated limitations.
 
 ### Executing program
 Let's examine each role in more detail:
 
-check_require: This function mimics the use of a require statement, a popular smart contract condition enforcement mechanism. A ValueError exception is raised by the function if the amount supplied in exceeds the limit. The transaction is stopped by this exception, which also keeps it from being carried out on the blockchain.
+The bikeSpeed function (designed for bikes) employs the require statement to determine if the input speed exceeds the 80 unit maximum permissible. The transaction is halted with the error notice "Speed exceeds the limit for bikes" when this barrier is crossed. If the speed is within a suitable range, however, the function sends a confirmation message stating that the speed is compliant.
 
-check_assert: This function, mimics an assert statement. It verifies whether the amount is less than or equal to the limit, just like require. On the other hand, it throws an AssertionError if the condition is not met. Assertions, in contrast to require, are typically used for development and may be turned off in production settings to prevent transactions from stopping
+carSpeed(uint speed): This function checks to see if the speed of an automobile is within the allowed 120 units. It uses an if condition and the revert function in cases where the speed exceeds the limit. The message "Speed exceeds the limit for cars" appears, and if the speed goes above 120, the transaction is canceled. "Speed is within the limit for cars" is returned if the speed is within the limit.
 
-check_revert: a more versatile method of reversing transactions in Solidity. It performs a similar amount check to the other functions. It prints a notice indicating that the transaction is reverted if it exceeds the limit, and it then mimics the halting behavior of a revert in Solidity using a return statement.
+truckSpeed(uint speed): This function checks to see if a truck's speed is within the 100 unit allowed range. The assert statement is used to enforce this limit. If the speed exceeds 100, the assertion causes the transaction to fail. "Speed is within the limit for trucks" is returned if the speed is within the limit.
 
-In conclusion, while addressing violations is accomplished through various ways, all three operations have the same goal of enforcing the transaction limit. Smart contracts in production usually employ require and reverse, whereas assert is primarily used for development and testing.
+When combined, these features offer a thorough approach to driving speed limitations, making use of Solidity's integrated error management to guarantee that motorcycles, automobiles, and trucks always travel within the law and safety. In addition to encouraging compliance with speed limits, this contract is a perfect example of Solidity programming best practices, especially when it comes to conditional validations and error handling.
 
 
 ## Result Analysis
+bikeSpeed function
+For speeds up to 80 mph, returns "Speed is within the limit for bikes."
+When the speed hits 80, it reverts to "Speed exceeds the limit for bikes."
 
-Based on the amount given, the functions would react as follows:
+carSpeed function 
+For speeds less than 120, returns "Speed is within the limit for cars."
+For speeds beyond 120, returns "Speed exceeds the limit for cars."
 
-value within limit: All three functions (checkRequire, checkAssert, and checkRevert) would return "completed," signifying a successful verification, if the transaction value was less than or equal to the provided limit (default 10).
+truckSpeed function
+For speeds < 100, returns "Speed is within the limit for trucks."
+fails the transaction without displaying a customized error message if speed > 100 as a result of the assert.
 
-Amount surpasses the limit:
-verifyRequire: If this function were to execute, the transaction would not be able to proceed since a ValueError exception would be raised with the message "Amount Greater than limit".
-verifyAssert: In certain cases (based on the environment), this function might raise an AssertionError and stop the transaction from being executed.
-verifyRevert: To essentially halt the transaction, this function would print "Transaction reverted: Amount Greater than limit" and mimic a transaction revert.
+The contract provide unambiguous user input for cars, trucks, and bikes while also successfully enforcing speed limits for all vehicle types.
+
 
 ## Authors
 
