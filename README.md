@@ -21,7 +21,7 @@ When combined, these features offer a thorough approach to driving speed limitat
 ## Result Analysis
 bikeSpeed function:
 For speeds up to 80 mph, returns "Speed is within the limit for bikes."
-When the speed hits 80, it reverts to "Speed exceeds the limit for bikes."
+When the speed hits above 80, it reverts to "Speed exceeds the limit for bikes."
 
 carSpeed function:
 For speeds less than 120, returns "Speed is within the limit for cars."
